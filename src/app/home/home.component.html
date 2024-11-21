@@ -1,0 +1,43 @@
+<div class="home-container">
+  <!-- Header with logo at the top -->
+  <div class="header">
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMpd1lCS_aKZVFZivR6-_6pP4FL9I8wcBqaw&s" alt="ChainSys Logo">
+    </div>
+  </div>
+
+  <!-- Display conversation history -->
+  <div class="chat-container">
+    <div *ngFor="let item of conversation" class="message">
+      <!-- Display user query -->
+      <div class="user-query"><strong>You:</strong> {{ item.query }}</div>
+
+      <!-- Display AI response with typing effect -->
+      <div class="response">
+        <strong>AI:</strong> {{ item.response }}
+        <span *ngIf="item.isTyping" class="typing-indicator">...</span>
+
+        <!-- Display metadata (sources) if available -->
+        <div *ngIf="item.sources?.length" class="sources">
+          <strong>Sources:</strong>
+          <ul>
+            <li *ngFor="let source of item.sources">{{ source.doc_id }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error message if there's an error -->
+    <div *ngIf="errorMessage" class="error-message">
+      <h3>Error:</h3>
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+
+  <!-- Search input and button positioned at the bottom -->
+  <div class="search-container">
+    <input #searchInput type="text" placeholder="Enter something to search" [(ngModel)]="query" class="search-bar">
+    <button (click)="onSearch(searchInput.value)">Search</button>
+    <button (click)="onStop()" class="stop-button" *ngIf="conversation[conversation.length - 1]?.isTyping">Stop</button>
+  </div>
+</div>

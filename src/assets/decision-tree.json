@@ -1,0 +1,215 @@
+{
+  "_id": "decisiontree_4",
+  "_rev": "30-3dc666cdb402e8cac188aa7351fddca3",
+  "data": {
+    "type": "decisiontree",
+    "startNode": "node1",
+    "nodes": {
+      "node1": {
+        "type": "input",
+        "text": "Hi! I am Chainbot, an online assistant for the employees!"
+      },
+      "node2": {
+        "type": "question",
+        "text": "Welcome to our leave application service",
+        "answers": [
+          {
+            "text": "Apply here!",
+            "next": "node3"
+          },
+          {
+            "text": "Check Leave balance",
+            "next": "node3"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node3": {
+        "type": "input",
+        "text": "Please provide your employee ID",
+        "next": "nodeCheckEligibility"
+      },
+      "nodeCheckEligibility": {
+        "type": "statement",
+        "text": "Checking your eligibility...",
+        "next": "nodeEligibilityResult"
+      },
+      "nodeEligibilityResult": {
+        "type": "question",
+        "text": "Hello [employeename], you are eligible to apply for leave. Your available leave balance is [leaveBalance].",
+        "answers": [
+          {
+            "text": "Proceed",
+            "next": "node4"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node4": {
+        "type": "input",
+        "text": "Type of leave",
+        "next": "node5"
+      },
+      "node5": {
+        "type": "input",
+        "text": "Reason for the leave",
+        "next": "node6"
+      },
+      "node6": {
+        "type": "input",
+        "text": "No. of days",
+        "next": "node7"
+      },
+      "node7": {
+        "type": "input",
+        "text": "Please provide the start date for your leave. (Format: YYYY-MM-DD)",
+        "next": "node8"
+      },
+      "node8": {
+        "type": "input",
+        "text": "Please provide the end date for your leave. (Format: YYYY-MM-DD)",
+        "next": "node9"
+      },
+      "node9": {
+        "type": "input",
+        "text": "Enter your Email ID",
+        "next": "node10"
+      },
+      "node10": {
+        "type": "input",
+        "text": "Enter manager Email ID",
+        "next": "node11"
+      },
+      "node11": {
+        "type": "question",
+        "text": "Are you sure you want to submit the form?",
+        "answers": [
+          {
+            "text": "Yes, submit",
+            "next": "node12"
+          },
+          {
+            "text": "No, make changes",
+            "next": "node4"
+          }
+        ]
+      },
+      "node12": {
+        "type": "question",
+        "text": "Your leave application has been successfully submitted! You will receive a confirmation email shortly. Is there anything else I can help you with?",
+        "answers": [
+          {
+            "text": "Yes",
+            "next": "node14"
+          },
+          {
+            "text": "No",
+            "next": "node15"
+          }
+        ]
+      },
+      "node13": {
+        "type": "question",
+        "text": "Ok! Do you need any other assist?",
+        "answers": [
+          {
+            "text": "Yes",
+            "next": "node14"
+          },
+          {
+            "text": "No",
+            "next": "node15"
+          }
+        ]
+      },
+      "node14": {
+        "type": "input",
+        "text": "Great! Feel free to ask"
+      },
+      "node15": {
+        "type": "input",
+        "text": "Thank You"
+      },
+      "node16": {
+        "type": "question",
+        "text": "Welcome to our Ticket service!",
+        "answers": [
+          {
+            "text": "Raise Ticket",
+            "next": "node17"
+          },
+          {
+            "text": "Ticket Status",
+            "next": "node17"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node17": {
+        "type": "input",
+        "text": "You will be redirected to our e.chain portal!",
+        "next": "node13"
+      },
+      "node18": {
+        "type": "question",
+        "text": "Welcome to our Technical service!",
+        "answers": [
+          {
+            "text": "Raise Support",
+            "next": "node19"
+          },
+          {
+            "text": "Cancel",
+            "next": "node13"
+          }
+        ]
+      },
+      "node19": {
+        "type": "input",
+        "text": "You will be redirected to our appTrack portal!",
+        "next": "node13"
+      },
+      "node20": {
+        "type": "input",
+        "text": "I am Large Language Model. Developed by Sharan"
+      },
+      "node21": {
+        "type": "question",
+        "text": "Would you like to change the dates?",
+        "answers": [
+          {
+            "text": "Yes",
+            "next": "node7"
+          },
+          {
+            "text": "No",
+            "next": "node13"
+          }
+        ]
+      },
+      "node22": {
+        "type": "question",
+        "text": "Your leave balance is 0. Please note that your leave will be marked as loss of pay.",
+        "answers": [
+          {
+            "text": "Ok",
+            "next": "node4"
+          },
+          {
+            "text": "No",
+            "next": "node1"
+          }
+        ]
+      }
+    }
+  }
+}
